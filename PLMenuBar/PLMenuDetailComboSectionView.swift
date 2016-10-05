@@ -92,7 +92,12 @@ class PLMenuDetailComboSectionView: UIView {
             
             self.rowViews.append(rowView);
             
-            rowView.contentBtn.addTarget(self, action: #selector(PLMenuDetailComboSectionView.didPrimaryAction(_:)), for: UIControlEvents.primaryActionTriggered);
+            if (self.item is PLMenuComboActionSection) {
+                let actionItem = self.item as! PLMenuComboActionSection
+                rowView.contentBtn.addTarget(actionItem.target, action: actionItem.action!, for: UIControlEvents.primaryActionTriggered);
+            } else {
+                rowView.contentBtn.addTarget(self, action: #selector(PLMenuDetailComboSectionView.didPrimaryAction(_:)), for: UIControlEvents.primaryActionTriggered);
+            }
             
         }
         
@@ -101,6 +106,12 @@ class PLMenuDetailComboSectionView: UIView {
     convenience init(item: PLMenuComboSection) {
         
         self.init(frame: CGRect.zero);
+        
+        if item is PLMenuComboActionSection {
+            self.item = PLMenuComboActionSection()
+            (self.item as! PLMenuComboActionSection).target = (item as! PLMenuComboActionSection).target
+            (self.item as! PLMenuComboActionSection).action = (item as! PLMenuComboActionSection).action
+        }
         
         self.item.title.append(item.title);
         

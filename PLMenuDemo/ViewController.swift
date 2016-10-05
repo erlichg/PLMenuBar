@@ -122,6 +122,7 @@ class ViewController: UIViewController, PLMenuBarDelegate {
                 PLMenuComboSection(title: "Section3", items: ["option1", "option2"], preferredIndex: 1),
                 PLMenuComboSection(title: "Section4", items: ["option1", "option2"], preferredIndex: 0),
                 PLMenuComboSection(title: "Section5", items: ["option1", "option2"], preferredIndex: 1),
+                PLMenuComboActionSection(title: "title", item: "get", target: self, action: #selector(action))
             ])
         ];
         
@@ -143,6 +144,10 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         
         self.view.addGestureRecognizer(gesture_down);
     
+    }
+    
+    func action() {
+        
     }
     
 }

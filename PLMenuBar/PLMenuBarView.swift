@@ -46,6 +46,20 @@ open class PLMenuComboSection: NSObject {
     
 }
 
+open class PLMenuComboActionSection : PLMenuComboSection {
+    open var target: AnyObject?
+    open var action: Selector?
+    
+    public override init() {
+        super.init();
+    }
+    public init(title: String = "", item: String, target: AnyObject, action: Selector) {
+        self.target = target
+        self.action = action
+        super.init(title: title, items: [item])
+    }
+}
+
 open class PLMenuDetailComboItem: PLMenuDetailItem {
     
     open var items: [PLMenuComboSection] = [PLMenuComboSection]();
