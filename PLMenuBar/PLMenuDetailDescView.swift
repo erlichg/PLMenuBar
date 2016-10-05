@@ -6,13 +6,13 @@
 //  Copyright © 2016 Patrick Lin. All rights reserved.
 //
 
-public class PLMenuDetailDescView: PLMenuDetailView {
+open class PLMenuDetailDescView: PLMenuDetailView {
     
     var text: String = "";
     
     // MARK: Public Methods
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         
         super.layoutSubviews();
      
@@ -28,9 +28,9 @@ public class PLMenuDetailDescView: PLMenuDetailView {
         
         content.numberOfLines = 0;
         
-        content.font = UIFont.systemFontOfSize(20);
+        content.font = UIFont.systemFont(ofSize: 20);
         
-        content.textAlignment = NSTextAlignment.Justified;
+        content.textAlignment = NSTextAlignment.justified;
         
         content.text = self.text;
         
@@ -42,9 +42,9 @@ public class PLMenuDetailDescView: PLMenuDetailView {
     
     convenience init(text: String) {
         
-        self.init(frame: CGRectZero);
+        self.init(frame: CGRect.zero);
         
-        self.text.appendContentsOf(text);
+        self.text.append(text);
         
         self.commonInit();
         

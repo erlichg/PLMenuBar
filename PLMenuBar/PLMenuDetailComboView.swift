@@ -8,21 +8,21 @@
 
 @objc public protocol PLMenuDetailComboViewDelegate: NSObjectProtocol {
     
-    func combo(combo: PLMenuDetailComboView, didChangeValueAtSection section: Int, Row row: Int);
+    func combo(_ combo: PLMenuDetailComboView, didChangeValueAtSection section: Int, Row row: Int);
     
 }
 
-public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionViewDelegate {
+open class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionViewDelegate {
 
     var items: [PLMenuComboSection] = [PLMenuComboSection]();
     
-    public var delegate: PLMenuDetailComboViewDelegate?;
+    open var delegate: PLMenuDetailComboViewDelegate?;
     
     // MARK: Combo Section Delegate Methods
     
-    func section(section: PLMenuDetailComboSectionView, didChangeValueAtRow row: Int) {
+    func section(_ section: PLMenuDetailComboSectionView, didChangeValueAtRow row: Int) {
         
-        for (indexOfSection, sectionView) in self.contentViews.enumerate() {
+        for (indexOfSection, sectionView) in self.contentViews.enumerated() {
             
             if sectionView == section {
                 
@@ -38,7 +38,7 @@ public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionVi
     
     // MARK: Public Methods
     
-    override public func layoutSubviews() {
+    override open func layoutSubviews() {
         
         super.layoutSubviews();
         
@@ -46,23 +46,23 @@ public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionVi
         
         let contentHeight = self.bounds.size.height;
         
-        for (index, content) in self.contentViews.enumerate() {
+        for (index, content) in self.contentViews.enumerated() {
             
-            content.frame = CGRectMake(contentWidth * CGFloat(index), 0, contentWidth, contentHeight);
+            content.frame = CGRect(x: contentWidth * CGFloat(index), y: 0, width: contentWidth, height: contentHeight);
             
         }
         
     }
     
-    override public func didUpdateFocusInContext(context: UIFocusUpdateContext, withAnimationCoordinator coordinator: UIFocusAnimationCoordinator) {
+    override open func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
         if context.nextFocusedView != nil {
             
-            for (_, contentView) in self.contentViews.enumerate() {
+            for (_, contentView) in self.contentViews.enumerated() {
                 
                 let sectionView = contentView as! PLMenuDetailComboSectionView;
                 
-                for (_, rowView) in sectionView.rowViews.enumerate() {
+                for (_, rowView) in sectionView.rowViews.enumerated() {
                     
                     if rowView.contentBtn === context.nextFocusedView! {
                         
@@ -78,11 +78,11 @@ public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionVi
         
         if context.previouslyFocusedView != nil {
             
-            for (_, contentView) in self.contentViews.enumerate() {
+            for (_, contentView) in self.contentViews.enumerated() {
                 
                 let sectionView = contentView as! PLMenuDetailComboSectionView;
                 
-                for (_, rowView) in sectionView.rowViews.enumerate() {
+                for (_, rowView) in sectionView.rowViews.enumerated() {
                     
                     if rowView.contentBtn === context.previouslyFocusedView! {
                         
@@ -102,7 +102,7 @@ public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionVi
     
     func commonInit() {
         
-        for (_, item) in self.items.enumerate() {
+        for (_, item) in self.items.enumerated() {
             
             let content = PLMenuDetailComboSectionView(item: item);
             
@@ -118,9 +118,9 @@ public class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionVi
     
     convenience init(items: [PLMenuComboSection]) {
         
-        self.init(frame: CGRectZero);
+        self.init(frame: CGRect.zero);
         
-        self.items.appendContentsOf(items);
+        self.items.append(contentsOf: items);
         
         self.commonInit();
         

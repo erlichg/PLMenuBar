@@ -19,7 +19,7 @@ class ViewController: UIViewController, PLMenuBarDelegate {
     {
         get
         {
-            return (self.menuBar.hidden == true) ? self.view : nil;
+            return (self.menuBar.isHidden == true) ? self.view : nil;
         }
     }
     
@@ -31,19 +31,19 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         
     }
     
-    func menuBar(menuBar: PLMenuBarView, titleForItemAtIndex index: Int) -> String {
+    func menuBar(_ menuBar: PLMenuBarView, titleForItemAtIndex index: Int) -> String {
         
         return self.menuDetailItems[index].title;
         
     }
     
-    func menuBar(menuBar: PLMenuBarView, detailItemForItemAtIndex index: Int) -> PLMenuDetailItem {
+    func menuBar(_ menuBar: PLMenuBarView, detailItemForItemAtIndex index: Int) -> PLMenuDetailItem {
         
         return self.menuDetailItems[index];
         
     }
     
-    func menuBar(menuBar: PLMenuBarView, didSelectDetailAtRow row: Int, Section section: Int, forItemAtIndex index: Int) {
+    func menuBar(_ menuBar: PLMenuBarView, didSelectDetailAtRow row: Int, Section section: Int, forItemAtIndex index: Int) {
         
         print("index: \(index), section: \(section), row: \(row)");
         
@@ -53,21 +53,21 @@ class ViewController: UIViewController, PLMenuBarDelegate {
     
     // MARK: Gesture Methods
     
-    func swipe(gesture: UISwipeGestureRecognizer) {
+    func swipe(_ gesture: UISwipeGestureRecognizer) {
         
-        if gesture.direction == UISwipeGestureRecognizerDirection.Up {
+        if gesture.direction == UISwipeGestureRecognizerDirection.up {
             
-            if UIScreen.mainScreen().focusedView != nil && NSStringFromClass(UIScreen.mainScreen().focusedView!.classForCoder) == "UITabBarButton" {
+            if UIScreen.main.focusedView != nil && NSStringFromClass(UIScreen.main.focusedView!.classForCoder) == "UITabBarButton" {
                 
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
                    
                     self.menuBar.alpha = 0;
                     
-                    self.menuBar.frame = CGRectMake(0, self.menuBar.bounds.size.height * -1, self.menuBar.bounds.size.width, self.menuBar.bounds.size.height);
+                    self.menuBar.frame = CGRect(x:0, y:self.menuBar.bounds.size.height * -1, width:self.menuBar.bounds.size.width, height:self.menuBar.bounds.size.height);
                     
                 }, completion: { (isCompleted: Bool) in
                     
-                    self.menuBar.hidden = true;
+                    self.menuBar.isHidden = true;
                     
                     self.setNeedsFocusUpdate();
                     
@@ -79,17 +79,17 @@ class ViewController: UIViewController, PLMenuBarDelegate {
             
         }
         
-        else if gesture.direction == UISwipeGestureRecognizerDirection.Down {
+        else if gesture.direction == UISwipeGestureRecognizerDirection.down {
             
-            if self.menuBar.hidden == true {
+            if self.menuBar.isHidden == true {
                 
-                self.menuBar.hidden = false;
+                self.menuBar.isHidden = false;
                 
-                UIView.animateWithDuration(0.3, delay: 0, options: UIViewAnimationOptions.BeginFromCurrentState, animations: {
+                UIView.animate(withDuration: 0.3, delay: 0, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
                     
                     self.menuBar.alpha = 1;
                     
-                    self.menuBar.frame = CGRectMake(0, 0, self.menuBar.bounds.size.width, self.menuBar.bounds.size.height);
+                    self.menuBar.frame = CGRect(x:0, y:0, width:self.menuBar.bounds.size.width, height:self.menuBar.bounds.size.height);
                     
                 }, completion: { (isCompleted: Bool) in
                     
@@ -133,11 +133,11 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         
         let gesture_up = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipe(_:)));
         
-        gesture_up.direction = UISwipeGestureRecognizerDirection.Up;
+        gesture_up.direction = UISwipeGestureRecognizerDirection.up;
         
         let gesture_down = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.swipe(_:)));
         
-        gesture_down.direction = UISwipeGestureRecognizerDirection.Down;
+        gesture_down.direction = UISwipeGestureRecognizerDirection.down;
         
         self.view.addGestureRecognizer(gesture_up);
         

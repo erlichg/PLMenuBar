@@ -8,7 +8,7 @@
 
 @objc protocol PLMenuDetailComboSectionViewDelegate: NSObjectProtocol {
     
-    func section(section: PLMenuDetailComboSectionView, didChangeValueAtRow row: Int);
+    func section(_ section: PLMenuDetailComboSectionView, didChangeValueAtRow row: Int);
     
 }
 
@@ -30,11 +30,11 @@ class PLMenuDetailComboSectionView: UIView {
         
         super.layoutSubviews();
         
-        self.titleView.frame = CGRectMake(40, 20, self.bounds.size.width - 40, 40);
+        self.titleView.frame = CGRect(x: 40, y: 20, width: self.bounds.size.width - 40, height: 40);
         
-        for (index, rowView) in self.rowViews.enumerate() {
+        for (index, rowView) in self.rowViews.enumerated() {
             
-            rowView.frame = CGRectMake(0, 70 + CGFloat(60 * index), self.bounds.size.width, 40);
+            rowView.frame = CGRect(x: 0, y: 70 + CGFloat(60 * index), width: self.bounds.size.width, height: 40);
             
         }
         
@@ -42,9 +42,9 @@ class PLMenuDetailComboSectionView: UIView {
     
     // MARK: Private Methods
     
-    func didPrimaryAction(sender: UIButton) {
+    func didPrimaryAction(_ sender: UIButton) {
         
-        for (indexOfRow, rowView) in self.rowViews.enumerate() {
+        for (indexOfRow, rowView) in self.rowViews.enumerated() {
             
             if rowView.contentBtn == sender {
                 
@@ -72,17 +72,17 @@ class PLMenuDetailComboSectionView: UIView {
     
     func commonInit() {
     
-        titleView.font = UIFont.boldSystemFontOfSize(18);
+        titleView.font = UIFont.boldSystemFont(ofSize: 18);
         
         titleView.alpha = 0.4;
         
-        titleView.textAlignment = NSTextAlignment.Left;
+        titleView.textAlignment = NSTextAlignment.left;
         
         titleView.text = self.item.title;
         
         self.addSubview(titleView);
         
-        for (indexOfRow, titleOfRow) in self.item.items.enumerate() {
+        for (indexOfRow, titleOfRow) in self.item.items.enumerated() {
             
             let rowView = PLMenuDetailComboRowView(title: titleOfRow);
             
@@ -92,7 +92,7 @@ class PLMenuDetailComboSectionView: UIView {
             
             self.rowViews.append(rowView);
             
-            rowView.contentBtn.addTarget(self, action: #selector(PLMenuDetailComboSectionView.didPrimaryAction(_:)), forControlEvents: UIControlEvents.PrimaryActionTriggered);
+            rowView.contentBtn.addTarget(self, action: #selector(PLMenuDetailComboSectionView.didPrimaryAction(_:)), for: UIControlEvents.primaryActionTriggered);
             
         }
         
@@ -100,11 +100,11 @@ class PLMenuDetailComboSectionView: UIView {
     
     convenience init(item: PLMenuComboSection) {
         
-        self.init(frame: CGRectZero);
+        self.init(frame: CGRect.zero);
         
-        self.item.title.appendContentsOf(item.title);
+        self.item.title.append(item.title);
         
-        self.item.items.appendContentsOf(item.items);
+        self.item.items.append(contentsOf: item.items);
         
         self.selectedIndexOfRow = item.preferredIndex;
         
