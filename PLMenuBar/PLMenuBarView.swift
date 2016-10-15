@@ -16,7 +16,7 @@
     
     @objc optional func menuBar(_ menuBar: PLMenuBarView, didSelectItemAtIndex index: Int);
     
-    @objc optional func menuBar(_ menuBar: PLMenuBarView, didSelectDetailAtRow row: Int, Section section: Int, forItemAtIndex index: Int);
+    @objc optional func menuBar(_ menuBar: PLMenuBarView, didSelectDetail detail: NSObject, atRow row: Int, Section section: Int, forItemAtIndex index: Int);
     
 }
 
@@ -128,9 +128,9 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     
     // MARK: Combo Delegate Methods
     
-    open func combo(_ combo: PLMenuDetailComboView, didChangeValueAtSection section: Int, Row row: Int) {
+    open func combo(_ combo: PLMenuDetailComboView, didChange detail:NSObject, valueAtSection section: Int, Row row: Int) {
         
-        self.delegate?.menuBar?(self, didSelectDetailAtRow: row, Section: section, forItemAtIndex: (self.menuBar.selectedItem?.tag)!);
+        self.delegate?.menuBar?(self, didSelectDetail: detail, atRow: row, Section: section, forItemAtIndex: (self.menuBar.selectedItem?.tag)!);
         
     }
     

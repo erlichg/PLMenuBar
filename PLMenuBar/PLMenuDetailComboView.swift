@@ -8,7 +8,7 @@
 
 @objc public protocol PLMenuDetailComboViewDelegate: NSObjectProtocol {
     
-    func combo(_ combo: PLMenuDetailComboView, didChangeValueAtSection section: Int, Row row: Int);
+    func combo(_ combo: PLMenuDetailComboView, didChange detail: NSObject, valueAtSection section: Int, Row row: Int);
     
 }
 
@@ -26,7 +26,7 @@ open class PLMenuDetailComboView: PLMenuDetailView, PLMenuDetailComboSectionView
             
             if sectionView == section {
                 
-                self.delegate?.combo(self, didChangeValueAtSection: indexOfSection, Row: row);
+                self.delegate?.combo(self, didChange: section, valueAtSection: indexOfSection, Row: row);
                 
                 break;
                 

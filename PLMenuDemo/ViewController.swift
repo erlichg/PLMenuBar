@@ -43,13 +43,15 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         
     }
     
-    func menuBar(_ menuBar: PLMenuBarView, didSelectDetailAtRow row: Int, Section section: Int, forItemAtIndex index: Int) {
-        
+    func menuBar(_ menuBar: PLMenuBarView, didSelectDetail detail: NSObject, atRow row: Int, Section section: Int, forItemAtIndex index: Int) {
         print("index: \(index), section: \(section), row: \(row)");
         
         ((self.menuDetailItems[index] as! PLMenuDetailComboItem).items[section]).preferredIndex = row;
-        
+
     }
+    
+        
+    
     
     // MARK: Gesture Methods
     

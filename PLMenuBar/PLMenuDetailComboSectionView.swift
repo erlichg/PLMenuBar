@@ -48,13 +48,13 @@ class PLMenuDetailComboSectionView: UIView {
             
             if rowView.contentBtn == sender {
                 
-                if rowView.isSelected == false {
+                //if rowView.isSelected == false {
                     
                     rowView.isSelected = true;
                     
                     self.delegate?.section(self, didChangeValueAtRow: indexOfRow);
                     
-                }
+                //}
                 
             }
             
