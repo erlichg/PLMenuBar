@@ -8,7 +8,7 @@
 
 @objc public protocol PLMenuDetailComboViewDelegate: NSObjectProtocol {
     
-    func combo(_ combo: PLMenuDetailComboView, didChange detail: NSObject, valueAtSection section: Int, Row row: Int);
+    func combo(_ combo: PLMenuDetailComboView, didChange detail: PLMenuDetailComboSectionView, valueAtSection section: Int, Row row: Int);
     
 }
 

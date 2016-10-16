@@ -6,11 +6,11 @@
 //  Copyright © 2016 Patrick Lin. All rights reserved.
 //
 
-class PLMenuDetailComboRowView: UIView {
+open class PLMenuDetailComboRowView: UIView {
     
     var title: String = "";
     
-    var isSelected: Bool = false {
+    open var isSelected: Bool = false {
         didSet
         {
             if self.isSelected != oldValue {
@@ -34,7 +34,7 @@ class PLMenuDetailComboRowView: UIView {
     
     // MARK: Public Methods
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         
         super.layoutSubviews();
         

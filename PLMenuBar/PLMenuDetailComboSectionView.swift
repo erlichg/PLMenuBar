@@ -12,13 +12,13 @@
     
 }
 
-class PLMenuDetailComboSectionView: UIView {
+open class PLMenuDetailComboSectionView: UIView {
     
     var item: PLMenuComboSection = PLMenuComboSection();
     
     var titleView: UILabel = UILabel();
     
-    var rowViews: [PLMenuDetailComboRowView] = [PLMenuDetailComboRowView]();
+    open var rowViews: [PLMenuDetailComboRowView] = [PLMenuDetailComboRowView]();
     
     var selectedIndexOfRow: Int = -1;
     
@@ -26,7 +26,7 @@ class PLMenuDetailComboSectionView: UIView {
     
     // MARK: Public Methods
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         
         super.layoutSubviews();
         

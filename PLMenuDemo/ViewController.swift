@@ -43,7 +43,8 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         
     }
     
-    func menuBar(_ menuBar: PLMenuBarView, didSelectDetail detail: NSObject, atRow row: Int, Section section: Int, forItemAtIndex index: Int) {
+    func menuBar(_ menuBar: PLMenuBarView, didSelectDetail detail: PLMenuDetailComboSectionView, atRow row: Int, Section section: Int, forItemAtIndex index: Int) {
+        detail.rowViews[row].isSelected = false
         print("index: \(index), section: \(section), row: \(row)");
         
         ((self.menuDetailItems[index] as! PLMenuDetailComboItem).items[section]).preferredIndex = row;
