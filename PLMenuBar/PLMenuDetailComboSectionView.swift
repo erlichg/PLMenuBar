@@ -76,7 +76,7 @@ open class PLMenuDetailComboSectionView: UIView {
         
         titleView.alpha = 0.4;
         
-        titleView.textAlignment = NSTextAlignment.center;
+        titleView.textAlignment = NSTextAlignment.left;
         
         titleView.text = self.item.title;
         

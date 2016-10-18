@@ -6,7 +6,6 @@
 //  Copyright © 2016 Patrick Lin. All rights reserved.
 //
 
-
 open class PLMenuDetailComboRowView: UIView {
     
     var title: String = "";
@@ -39,12 +38,9 @@ open class PLMenuDetailComboRowView: UIView {
         
         super.layoutSubviews();
         
-        var size = (self.contentBtn.titleLabel!.text! as NSString).size(attributes: [NSFontAttributeName: self.contentBtn.titleLabel!.font]);
-        size.width += 20;
+        self.checkBoxView.frame = CGRect(x: 8, y: 0, width: 22, height: self.bounds.size.height);
         
-        self.contentBtn.frame = CGRect(x: self.bounds.size.width / 2 - size.width / 2, y: 0, width: size.width, height: self.bounds.size.height);
-        
-        self.checkBoxView.frame = CGRect(x: self.bounds.size.width / 2 - size.width / 2 - 30, y: 0, width: 22, height: self.bounds.size.height);
+        self.contentBtn.frame = CGRect(x: 30, y: 0, width: self.bounds.size.width - 30, height: self.bounds.size.height);
         
     }
     
@@ -66,7 +62,7 @@ open class PLMenuDetailComboRowView: UIView {
     
     func commonInit() {
         
-        self.contentBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center;
+        self.contentBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignment.left;
         
         self.contentBtn.setTitle(title, for: UIControlState());
         
