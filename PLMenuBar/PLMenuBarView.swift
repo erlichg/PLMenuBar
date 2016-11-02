@@ -5,6 +5,7 @@
 //  Created by Patrick Lin on 4/12/16.
 //  Copyright © 2016 Patrick Lin. All rights reserved.
 //
+import UIKit
 
 @objc public protocol PLMenuBarDelegate: NSObjectProtocol {
     
@@ -118,7 +119,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     
     fileprivate var menuBar: UITabBar!;
     
-    fileprivate var detailView: PLBackdropView!;
+    fileprivate var detailView: UIView!;
     
     fileprivate var borderView: UIView!;
     
@@ -327,11 +328,9 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
         
         self.addSubview(self.menuBar);
         
-        //let settings = PLBackdropViewSettingsATVMenuLight();
+        self.detailView = UIView(frame: CGRect.zero);
         
-        self.detailView = PLBackdropView(frame: CGRect.zero);
-        
-        self.detailView.subviews[0].autoresizingMask = UIViewAutoresizing.flexibleWidth.union(UIViewAutoresizing.flexibleHeight);
+        self.detailView.autoresizingMask = UIViewAutoresizing.flexibleWidth.union(UIViewAutoresizing.flexibleHeight);
         
         //self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
         
@@ -346,6 +345,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
         self.addSubview(self.borderView);
         
     }
+    
     
     // MARK: Init Methods
     

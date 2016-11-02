@@ -5,6 +5,7 @@
 //  Created by Patrick Lin on 4/14/16.
 //  Copyright © 2016 Patrick Lin. All rights reserved.
 //
+import UIKit
 
 open class PLMenuDetailComboRowView: UIView {
     
@@ -50,13 +51,23 @@ open class PLMenuDetailComboRowView: UIView {
         
         self.checkBoxView.isHidden = !self.isSelected;
         
-        let color = (self.isHighLighted == true) ? UIColor.white : UIColor(red: 39/255, green: 33/255, blue: 29/255, alpha: 0.7);
+        var color = (self.isHighLighted == true) ? UIColor.white : UIColor.darkGray;
+        
+        if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
+            color = (self.isHighLighted == true) ? UIColor.white : UIColor.lightGray;
+        }
         
         self.checkBoxView.tintColor = color;
         
         self.contentBtn.setTitleColor(color, for: UIControlState());
         
     }
+    
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateStyle()
+    }
+    
+    
     
     // MARK: Init Methods
     
