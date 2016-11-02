@@ -246,6 +246,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
                 
                 self.detailView.frame = CGRect(x: 0, y: PLMenuBarView.MenuBarMinHeight, width: self.frame.size.width, height: PLMenuBarView.MenuBarDetailMinHeight);
                 
+                
                 self.contentView?.alpha = 1;
                 
                 self.borderView.frame = CGRect(x: 0, y: PLMenuBarView.MenuBarMinHeight, width: self.frame.size.width, height: PLMenuBarView.MenuBarBorderHeight);
@@ -321,18 +322,18 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     fileprivate func commInit() {
         
         self.menuBar = UITabBar();
-        
+                
         self.menuBar.delegate = self;
         
         self.addSubview(self.menuBar);
         
-        let settings = PLBackdropViewSettingsATVMenuLight();
+        //let settings = PLBackdropViewSettingsATVMenuLight();
         
-        self.detailView = PLBackdropView(frame: CGRect.zero, settings: settings);
+        self.detailView = PLBackdropView(frame: CGRect.zero);
         
         self.detailView.subviews[0].autoresizingMask = UIViewAutoresizing.flexibleWidth.union(UIViewAutoresizing.flexibleHeight);
         
-        self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
+        //self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
         
         self.detailView.clipsToBounds = true;
         
