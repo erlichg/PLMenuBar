@@ -129,6 +129,8 @@ class ViewController: UIViewController, PLMenuBarDelegate {
             ])
         ];
         
+        self.view.backgroundColor = UIColor.black
+        
         self.menuBar = PLMenuBarView();
         
         self.menuBar.delegate = self;
