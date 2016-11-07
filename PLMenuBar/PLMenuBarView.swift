@@ -77,13 +77,21 @@ open class PLMenuDetailComboItem: PLMenuDetailItem {
 
 open class PLMenuDetailDescItem: PLMenuDetailItem {
     
+    open var textTitle: String = "";
+    
     open var text: String = "";
     
-    public init(title: String = "", text: String = "") {
+    open var image: String = "";
+    
+    public init(title: String = "", textTitle: String = "", text: String = "", image: String = "") {
         
         super.init(title: title);
         
-        self.text.append(text);
+        self.textTitle = textTitle;
+        
+        self.text = text;
+        
+        self.image = image;
         
     }
     
@@ -169,7 +177,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
             
             if detailItem is PLMenuDetailDescItem {
                 
-                self.contentView = PLMenuDetailDescView(text: (detailItem as! PLMenuDetailDescItem).text);
+                self.contentView = PLMenuDetailDescView(title: (detailItem as! PLMenuDetailDescItem).textTitle, text: (detailItem as! PLMenuDetailDescItem).text, image: (detailItem as! PLMenuDetailDescItem).image);
                 
                 self.contentView!.frame = contentFrame;
                 

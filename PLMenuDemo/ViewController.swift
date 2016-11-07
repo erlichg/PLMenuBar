@@ -117,7 +117,7 @@ class ViewController: UIViewController, PLMenuBarDelegate {
         let testString = "Every page in a client-server app is built on a TVML template. TVML templates define what elements can be used and in what order. Each template is designed to display information in a specific way. For example, the loadingTemplate shows a spinner and a quick description of what is happening, while the ratingTemplate shows the rating for a product. You create a new TVML file that contains a single template for each page in a client-server app. Each template page occupies the entire TV screen. \n\nEach template page uses compound and simple elements. Compound elements contain other elements, while simple elements are single lines of TVML. Elements contain the information and images that are displayed on the screen.";
         
         self.menuDetailItems = [
-            PLMenuDetailDescItem(title: "TabBarItem with Desc", text: testString),
+            PLMenuDetailDescItem(title: "TabBarItem with Desc", textTitle: "hello world", text: testString, image: "http://localhost:5000/cache/aHR0cDovL21zYy53Y2RuLmNvLmlsL3cvMTgtNDAwLzEyNzQ4ODctMTguanBn"),
             PLMenuDetailItem(title: "TabBarItem with Nothing"),
             PLMenuDetailComboItem(title: "TabBarItem with Combo", items: [
                 PLMenuComboSection(title: "Section1", items: ["option1", "option2"], preferredIndex: 1),
