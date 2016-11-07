@@ -83,15 +83,19 @@ open class PLMenuDetailDescItem: PLMenuDetailItem {
     
     open var image: String = "";
     
-    public init(title: String = "", textTitle: String = "", text: String = "", image: String = "") {
+    public init(title: String = "", textTitle: String?, text: String = "", image: String?) {
         
         super.init(title: title);
         
-        self.textTitle = textTitle;
+        if textTitle != nil {
+            self.textTitle = textTitle!;
+        }
         
         self.text = text;
         
-        self.image = image;
+        if image != nil {
+            self.image = image!;
+        }
         
     }
     
