@@ -117,7 +117,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     
     static let MenuBarMinHeight: CGFloat = 140;
     
-    static let MenuBarDetailMinHeight: CGFloat = 210;
+    static let MenuBarDetailMinHeight: CGFloat = 300;
     
     static let MenuBarDetailPadding: CGFloat = 150;
     
