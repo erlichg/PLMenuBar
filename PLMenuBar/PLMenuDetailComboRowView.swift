@@ -54,7 +54,7 @@ open class PLMenuDetailComboRowView: UIView {
         var color = (self.isHighLighted == true) ? UIColor.white : UIColor.darkGray;
         
         if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-            color = (self.isHighLighted == true) ? UIColor.white : UIColor.lightGray;
+            color = (self.isHighLighted == true) ? UIColor.white : UIColor.black;
         }
         
         self.checkBoxView.tintColor = color;

@@ -347,7 +347,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
         self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
         
         if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-            self.detailView.backgroundColor = UIColor(white: 0.2, alpha: 0.8);
+            self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.3);
         }
         
         self.detailView.clipsToBounds = true;
@@ -365,7 +365,7 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #available(tvOS 10.0, *) {
             if self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-                self.detailView.backgroundColor = UIColor(white: 0.2, alpha: 0.8);
+                self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.3);
             } else {
                 self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
             }
