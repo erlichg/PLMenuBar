@@ -344,10 +344,10 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
         
         self.detailView.autoresizingMask = UIViewAutoresizing.flexibleWidth.union(UIViewAutoresizing.flexibleHeight);
         
-        self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.5);
+        self.detailView.backgroundColor = UIColor(white: 0.6, alpha: 0.9);
         
         if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-            self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.5);
+            self.detailView.backgroundColor = UIColor(white: 0.1, alpha: 0.9);
         }
         
         self.detailView.clipsToBounds = true;
@@ -365,9 +365,9 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
     open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         if #available(tvOS 10.0, *) {
             if self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-                self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.3);
+                self.detailView.backgroundColor = UIColor(white: 0.1, alpha: 0.9);
             } else {
-                self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
+                self.detailView.backgroundColor = UIColor(white: 0.6, alpha: 0.9);
             }
         }
     }
