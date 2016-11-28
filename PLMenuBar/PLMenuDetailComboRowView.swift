@@ -51,21 +51,25 @@ open class PLMenuDetailComboRowView: UIView {
         
         self.checkBoxView.isHidden = !self.isSelected;
         
-        var color = (self.isHighLighted == true) ? UIColor.white : UIColor.darkGray;
+        var color = UIColor.white //(self.isHighLighted == true) ? UIColor.white : UIColor.darkGray;
         
-        if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-            color = (self.isHighLighted == true) ? UIColor.white : UIColor.black;
-        }
+        //if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
+        //    color = (self.isHighLighted == true) ? UIColor.white : UIColor.black;
+        //}
         
         self.checkBoxView.tintColor = color;
         
         self.contentBtn.setTitleColor(color, for: UIControlState());
         
+        if self.isHighLighted {
+            self.contentBtn.titleLabel?.font = self.contentBtn.titleLabel?.font.withSize(25)
+        } else {
+            self.contentBtn.titleLabel?.font = self.contentBtn.titleLabel?.font.withSize(20)
+        }
+        
     }
     
-    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        updateStyle()
-    }
+    
     
     
     
