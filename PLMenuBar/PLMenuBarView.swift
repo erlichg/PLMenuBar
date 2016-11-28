@@ -344,10 +344,10 @@ open class PLMenuBarView: UIView, UITabBarDelegate, UITableViewDelegate, PLMenuD
         
         self.detailView.autoresizingMask = UIViewAutoresizing.flexibleWidth.union(UIViewAutoresizing.flexibleHeight);
         
-        self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.3);
+        self.detailView.backgroundColor = UIColor(white: 1, alpha: 0.5);
         
         if #available(tvOS 10.0, *), self.traitCollection.userInterfaceStyle == UIUserInterfaceStyle.dark {
-            self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.3);
+            self.detailView.backgroundColor = UIColor(white: 0.3, alpha: 0.5);
         }
         
         self.detailView.clipsToBounds = true;
